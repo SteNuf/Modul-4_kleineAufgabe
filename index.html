@@ -26,15 +26,19 @@
         studentArray.forEach((student) => {
           appendStudent(student);
         });
+        console.log(studentArray);
       }
 
       //TODO 4: Students aus localstorage lesen
       function loadFromStorage() {
         const studentFromStorage = JSON.parse(
-          localStorage.getItem("studentsArray")
+          localStorage.getItem("studentArray")
         );
-        if (studentFromStorage !== 0) {
+        console.log(studentArray, studentFromStorage);
+        if (studentFromStorage !== null) {
           studentArray = studentFromStorage;
+        } else {
+          localStorage.setItem("studentArray", JSON.stringify(studentArray));
         }
       }
 
